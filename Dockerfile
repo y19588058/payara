@@ -81,7 +81,9 @@ RUN wget --no-verbose -O payara.zip https://s3-eu-west-1.amazonaws.com/payara.fi
     mv payara*/ appserver && \
     # Configure the password file for configuring Payara
     echo "AS_ADMIN_PASSWORD=\nAS_ADMIN_NEWPASSWORD=${ADMIN_PASSWORD}" > /tmp/tmpfile && \	
+    cat /tmp/tmpfile && \	
     echo "AS_ADMIN_PASSWORD=${ADMIN_PASSWORD}" >> ${PASSWORD_FILE} && \
+    cat ${PASSWORD_FILE} && \	
     # Configure the payara domain
     ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=/tmp/tmpfile change-admin-password --domain_name=${DOMAIN_NAME} && \
     ${PAYARA_DIR}/bin/asadmin --user=${ADMIN_USER} --passwordfile=${PASSWORD_FILE} start-domain ${DOMAIN_NAME} && \
