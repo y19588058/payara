@@ -80,7 +80,7 @@ RUN wget --no-verbose -O payara.zip https://s3-eu-west-1.amazonaws.com/payara.fi
     unzip -qq payara.zip -d ./ && \
     mv payara*/ appserver && \
     # Configure the password file for configuring Payara
-    echo "AS_ADMIN_PASSWORD=\nAS_ADMIN_NEWPASSWORD=${ADMIN_PASSWORD}" > /tmp/tmpfile && \	
+    echo "AS_ADMIN_PASSWORD=\nAS_ADMIN_MASTERPASSWORD=${ADMIN_PASSWORD}\nAS_ADMIN_SSHPASSWORD=${ADMIN_PASSWORD}" > /tmp/tmpfile && \	
     cat /tmp/tmpfile && \	
     echo "AS_ADMIN_PASSWORD=${ADMIN_PASSWORD}" >> ${PASSWORD_FILE} && \
     cat ${PASSWORD_FILE} && \	
