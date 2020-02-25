@@ -56,7 +56,7 @@ ENV HOME_DIR=/opt/payara\
     # Payara Server Domain options
     DOMAIN_NAME=production\
     ADMIN_USER=admin\
-    ADMIN_PASSWORD=admin \
+    ADMIN_PASSWORD=admin1 \
     # Utility environment variables
     JVM_ARGS=\
     DEPLOY_PROPS=\
