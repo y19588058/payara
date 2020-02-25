@@ -56,7 +56,7 @@ ENV HOME_DIR=/opt/payara\
     # Payara Server Domain options
     DOMAIN_NAME=production\
     ADMIN_USER=admin\
-    ADMIN_PASSWORD=admin1 \
+    ADMIN_PASSWORD=admin12345 \
     # Utility environment variables
     JVM_ARGS=\
     DEPLOY_PROPS=\
@@ -84,6 +84,8 @@ RUN wget --no-verbose -O payara.zip https://s3-eu-west-1.amazonaws.com/payara.fi
     cat /tmp/tmpfile && \	
     echo "AS_ADMIN_PASSWORD=${ADMIN_PASSWORD}" >> ${PASSWORD_FILE} && \
     cat ${PASSWORD_FILE} && \	
+    chmod 600 /tmp/tmpfile && \	
+    chmod 600 ${PASSWORD_FILE} && \
     # Configure the payara domain
     echo --user ${ADMIN_USER} --passwordfile=/tmp/tmpfile change-admin-password --domain_name=${DOMAIN_NAME} && \
     od -c /tmp/tmpfile && \	
